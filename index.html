@@ -2,270 +2,1659 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peach Law | Professional Legal Counsel</title>
-    
-    <!-- Google Fonts for a professional look -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Color Palette & Base Styles */
-        :root {
-            --primary-navy: #1B263B;
-            --accent-peach: #E5B299;
-            --text-dark: #333333;
-            --text-light: #FFFFFF;
-            --bg-light: #F8F9FA;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+    <meta
+        name="description"
+        content="Astronis — Corporate, Regulatory & Business Advisory. Enabling business growth through legal intelligence."
+    >
 
-        h1, h2, h3 {
-            font-family: 'Merriweather', serif;
-            color: var(--primary-navy);
-        }
+    <meta
+        name="theme-color"
+        content="#030914"
+    >
 
-        /* Navigation */
-        header {
-            background-color: var(--text-light);
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    <title>Astronis | Law. Strategy. Advantage.</title>
 
-        .logo {
-            font-family: 'Merriweather', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-navy);
-            text-decoration: none;
-        }
+    <!-- ================================
+         GOOGLE FONTS
+    ================================= -->
 
-        .logo span {
-            color: var(--accent-peach);
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
+    <!-- ================================
+         MAIN CSS
+    ================================= -->
 
-        nav a:hover {
-            color: var(--accent-peach);
-        }
+    <link rel="stylesheet" href="./css/style.css">
 
-        /* Hero Section */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(27, 38, 59, 0.85), rgba(27, 38, 59, 0.85)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            color: var(--text-light);
-            font-size: 3rem;
-            max-width: 800px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-peach);
-            color: var(--primary-navy);
-            padding: 15px 35px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #d49d82;
-            transform: translateY(-2px);
-        }
-
-        /* Practice Areas Section */
-        .practice-areas {
-            padding: 80px 5%;
-            background-color: var(--bg-light);
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: var(--text-light);
-            padding: 40px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--accent-peach);
-            text-align: left;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Footer & Contact */
-        footer {
-            background-color: var(--primary-navy);
-            color: var(--text-light);
-            padding: 60px 5% 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 40px;
-        }
-
-        .footer-col h3 {
-            color: var(--accent-peach);
-            margin-bottom: 20px;
-        }
-
-        .footer-col p {
-            margin-bottom: 10px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none; /* Can be replaced with a hamburger menu later */
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
 </head>
+
 <body>
 
-    <!-- Header / Navigation -->
-    <header>
-        <a href="#" class="logo">Peach<span>Law</span></a>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#practice">Practice Areas</a></li>
-                <li><a href="#about">About Firm</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<!-- =========================================
+     CINEMATIC PAGE LOADER
+========================================= -->
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-inner">
+
+        <div class="loader-logo">
+            <img
+                src="./assets/logo/astronis-logo.png"
+                alt="Astronis"
+            >
+        </div>
+
+        <div class="loader-line">
+            <span></span>
+        </div>
+
+        <p>LEGAL INTELLIGENCE</p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header class="site-header" id="siteHeader">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+
+        <a href="./index.html" class="brand">
+
+            <img
+                src="./assets/logo/astronis-logo.png"
+                alt="Astronis"
+            >
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="desktop-nav" aria-label="Main navigation">
+
+            <a href="./about.html">
+                About
+            </a>
+
+            <a href="./services.html">
+                Services
+            </a>
+
+            <a href="#industries">
+                Industries
+            </a>
+
+            <a href="#insights">
+                Insights
+            </a>
+
+            <a href="./contact.html">
+                Contact
+            </a>
+
         </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Dedicated Legal Counsel You Can Trust</h1>
-        <p>Providing strategic, results-driven legal representation tailored to your unique needs.</p>
-        <a href="#contact" class="btn">Request a Consultation</a>
-    </section>
 
-    <!-- Practice Areas -->
-    <section id="practice" class="practice-areas">
-        <h2 class="section-title">Our Practice Areas</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Corporate Law</h3>
-                <p>Comprehensive legal strategies for businesses, from formation to complex mergers and acquisitions.</p>
-            </div>
-            <div class="card">
-                <h3>Civil Litigation</h3>
-                <p>Fierce advocacy in the courtroom to protect your rights and achieve favorable resolutions.</p>
-            </div>
-            <div class="card">
-                <h3>Family Law</h3>
-                <p>Compassionate guidance through difficult transitions, ensuring the best outcomes for you and your loved ones.</p>
-            </div>
-        </div>
-    </section>
+        <!-- NAVIGATION ACTIONS -->
 
-    <!-- Footer / Contact Information -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-col">
-                <h3>Peach Law</h3>
-                <p>Excellence in Legal Practice.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Contact Us</h3>
-                <!-- Placeholders ready for your friend's actual information -->
-                <p>Email: contact@peachlaw.com</p>
-                <p>Phone: +1 (555) 123-4567</p>
-                <p>Address: 123 Legal Avenue, Suite 400, City, State 12345</p>
-            </div>
+        <div class="nav-actions">
+
+            <a
+                href="./contact.html"
+                class="nav-consultation"
+            >
+                <span>Consultation</span>
+                <span class="arrow">↗</span>
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+
+                <span></span>
+                <span></span>
+
+            </button>
+
         </div>
-        <div class="copyright">
-            &copy; 2026 Peach Law. All Rights Reserved.
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     FULL SCREEN MOBILE MENU
+========================================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-bg"></div>
+
+    <div class="mobile-menu-content">
+
+        <div class="mobile-menu-label">
+            ASTRONIS / MENU
         </div>
-    </footer>
+
+        <nav>
+
+            <a href="./about.html">
+                <span>01</span>
+                About
+            </a>
+
+            <a href="./services.html">
+                <span>02</span>
+                Services
+            </a>
+
+            <a href="#industries">
+                <span>03</span>
+                Industries
+            </a>
+
+            <a href="#insights">
+                <span>04</span>
+                Knowledge Centre
+            </a>
+
+            <a href="./contact.html">
+                <span>05</span>
+                Contact
+            </a>
+
+        </nav>
+
+        <div class="mobile-menu-footer">
+
+            <span>Delhi</span>
+            <span>Mumbai</span>
+            <span>Bengaluru</span>
+            <span>Global Advisory</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero" id="hero">
+
+    <!-- ATMOSPHERE -->
+
+    <div class="hero-atmosphere"></div>
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-orb hero-orb-one"></div>
+
+    <div class="hero-orb hero-orb-two"></div>
+
+
+    <!-- HERO CONTENT -->
+
+    <div class="hero-content">
+
+        <div class="hero-eyebrow reveal">
+
+            <span class="eyebrow-line"></span>
+
+            <span>
+                CORPORATE · REGULATORY · BUSINESS
+            </span>
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+            <span class="title-line reveal">
+                Enabling
+            </span>
+
+            <span class="title-line reveal">
+                <em>Business Growth</em>
+            </span>
+
+            <span class="title-line reveal">
+                Through Legal Intelligence.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description reveal">
+
+            Corporate, regulatory and strategic legal advisory
+            designed to help ambitious businesses navigate
+            complexity, manage risk and move forward with confidence.
+
+        </p>
+
+
+        <!-- HERO BUTTONS -->
+
+        <div class="hero-actions reveal">
+
+            <a
+                href="./contact.html"
+                class="btn btn-primary"
+            >
+
+                <span>Schedule Consultation</span>
+
+                <span class="btn-arrow">↗</span>
+
+            </a>
+
+
+            <a
+                href="./services.html"
+                class="btn btn-outline"
+            >
+
+                <span>Explore Services</span>
+
+                <span class="btn-arrow">↗</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO SIDE LABEL -->
+
+    <div class="hero-side-label">
+
+        <span>ASTRONIS</span>
+
+        <span>LEGAL INTELLIGENCE</span>
+
+    </div>
+
+
+    <!-- HERO BOTTOM DATA -->
+
+    <div class="hero-data">
+
+        <div class="hero-data-item">
+
+            <strong>2015</strong>
+
+            <span>Established</span>
+
+        </div>
+
+
+        <div class="hero-data-item">
+
+            <strong>11+</strong>
+
+            <span>Years Experience</span>
+
+        </div>
+
+
+        <div class="hero-data-item">
+
+            <strong>1000+</strong>
+
+            <span>Advisory Assignments</span>
+
+        </div>
+
+
+        <div class="hero-data-item">
+
+            <strong>GLOBAL</strong>
+
+            <span>Advisory Network</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- SCROLL INDICATOR -->
+
+    <a
+        href="#why-astronis"
+        class="scroll-indicator"
+    >
+
+        <span>Scroll to explore</span>
+
+        <div class="scroll-line"></div>
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================================
+     INTRO / WHY ASTRONIS
+========================================= -->
+
+<section
+    class="section intro-section"
+    id="why-astronis"
+>
+
+    <div class="container">
+
+        <div class="section-label">
+
+            <span>01</span>
+
+            <span>WHY ASTRONIS</span>
+
+        </div>
+
+
+        <div class="intro-layout">
+
+            <div class="intro-heading">
+
+                <h2>
+
+                    Legal thinking
+                    <span>built around</span>
+                    business.
+
+                </h2>
+
+            </div>
+
+
+            <div class="intro-copy">
+
+                <p class="large-copy">
+
+                    Astronis brings together legal expertise,
+                    regulatory intelligence and commercial
+                    understanding to help businesses make
+                    confident decisions.
+
+                </p>
+
+
+                <p>
+
+                    From corporate structuring and regulatory
+                    compliance to strategic transactions and
+                    international expansion, our approach is
+                    designed around the realities of business.
+
+                </p>
+
+
+                <a
+                    href="./about.html"
+                    class="text-link"
+                >
+
+                    <span>Discover Astronis</span>
+
+                    <span>↗</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     EXPERIENCE STATEMENT
+========================================= -->
+
+<section class="statement-section">
+
+    <div class="statement-background"></div>
+
+    <div class="container">
+
+        <div class="statement-content">
+
+            <span class="statement-label">
+                LEGAL × BUSINESS × STRATEGY
+            </span>
+
+            <h2>
+
+                Turning complexity
+                <span>into clarity.</span>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INDUSTRIES
+========================================= -->
+
+<section
+    class="section industries-section"
+    id="industries"
+>
+
+    <div class="container">
+
+        <div class="section-label">
+
+            <span>02</span>
+
+            <span>INDUSTRIES WE SERVE</span>
+
+        </div>
+
+
+        <div class="section-heading-row">
+
+            <h2>
+
+                Built for
+                <span>complex industries.</span>
+
+            </h2>
+
+            <p>
+
+                Sector-specific legal and regulatory
+                understanding for businesses operating
+                in rapidly changing environments.
+
+            </p>
+
+        </div>
+
+
+        <div class="industries-list">
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">01</span>
+
+                <span class="industry-name">
+                    FinTech
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">02</span>
+
+                <span class="industry-name">
+                    Banking & Financial Services
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">03</span>
+
+                <span class="industry-name">
+                    Technology & IT
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">04</span>
+
+                <span class="industry-name">
+                    Healthcare & Pharmaceuticals
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">05</span>
+
+                <span class="industry-name">
+                    Manufacturing
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">06</span>
+
+                <span class="industry-name">
+                    Infrastructure & Real Estate
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">07</span>
+
+                <span class="industry-name">
+                    Energy
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+
+            <a href="#" class="industry-item">
+
+                <span class="industry-number">08</span>
+
+                <span class="industry-name">
+                    E-Commerce & Retail
+                </span>
+
+                <span class="industry-arrow">↗</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CORE SERVICES
+========================================= -->
+
+<section
+    class="section services-section"
+    id="services"
+>
+
+    <div class="container">
+
+        <div class="section-label">
+
+            <span>03</span>
+
+            <span>CORE SERVICES</span>
+
+        </div>
+
+
+        <div class="section-heading-row">
+
+            <h2>
+
+                Strategic legal
+                <span>expertise.</span>
+
+            </h2>
+
+            <a
+                href="./services.html"
+                class="text-link"
+            >
+
+                <span>View all services</span>
+
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <!-- SERVICE 01 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>01</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    Corporate Advisory
+                </h3>
+
+                <p>
+
+                    Corporate structuring, governance,
+                    restructuring and strategic business
+                    advisory.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 02 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>02</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    Startup & Investment
+                </h3>
+
+                <p>
+
+                    Startup India, fundraising, investment
+                    structures, ESOPs and founder advisory.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 03 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>03</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    Intellectual Property
+                </h3>
+
+                <p>
+
+                    Trademark, patent, copyright, licensing,
+                    technology and brand protection.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 04 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>04</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    Banking & RBI
+                </h3>
+
+                <p>
+
+                    RBI, NBFC, FinTech, payment systems,
+                    FEMA and financial-services compliance.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 05 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>05</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    Regulatory Compliance
+                </h3>
+
+                <p>
+
+                    Regulatory frameworks, corporate compliance,
+                    data protection and risk management.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 06 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>06</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    International Business
+                </h3>
+
+                <p>
+
+                    Cross-border transactions, foreign investment,
+                    India entry and global expansion.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 07 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>07</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    Corporate Governance
+                </h3>
+
+                <p>
+
+                    Board advisory, governance frameworks,
+                    risk oversight and corporate strategy.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 08 -->
+
+            <article class="service-card">
+
+                <div class="service-card-top">
+
+                    <span>08</span>
+
+                    <span>↗</span>
+
+                </div>
+
+                <h3>
+                    Contracts & Transactions
+                </h3>
+
+                <p>
+
+                    Commercial contracts, technology agreements,
+                    M&A and strategic transactions.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     WHY CLIENTS
+========================================= -->
+
+<section class="section clients-section">
+
+    <div class="container">
+
+        <div class="section-label">
+
+            <span>04</span>
+
+            <span>WHY CLIENTS CHOOSE ASTRONIS</span>
+
+        </div>
+
+
+        <div class="clients-layout">
+
+
+            <div class="clients-heading">
+
+                <h2>
+
+                    Advice that
+                    understands
+                    <span>business.</span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="clients-points">
+
+
+                <div class="client-point">
+
+                    <span>01</span>
+
+                    <div>
+
+                        <h3>
+                            Business-first approach
+                        </h3>
+
+                        <p>
+                            Legal advice connected to
+                            commercial objectives.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="client-point">
+
+                    <span>02</span>
+
+                    <div>
+
+                        <h3>
+                            Commercial understanding
+                        </h3>
+
+                        <p>
+                            We look beyond the legal question
+                            to understand the business context.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="client-point">
+
+                    <span>03</span>
+
+                    <div>
+
+                        <h3>
+                            Integrated advisory
+                        </h3>
+
+                        <p>
+                            Corporate, regulatory and strategic
+                            perspectives working together.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="client-point">
+
+                    <span>04</span>
+
+                    <div>
+
+                        <h3>
+                            Partner-led advisory
+                        </h3>
+
+                        <p>
+                            Senior-level attention where it
+                            matters most.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PROCESS
+========================================= -->
+
+<section class="process-section">
+
+    <div class="container">
+
+        <div class="section-label">
+
+            <span>05</span>
+
+            <span>OUR PROCESS</span>
+
+        </div>
+
+
+        <div class="process-heading">
+
+            <h2>
+
+                From question
+                <span>to execution.</span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="process-track">
+
+
+            <div class="process-item">
+
+                <span class="process-number">
+                    01
+                </span>
+
+                <h3>
+                    Consult
+                </h3>
+
+                <p>
+                    Understand the objective.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <span class="process-number">
+                    02
+                </span>
+
+                <h3>
+                    Analyze
+                </h3>
+
+                <p>
+                    Identify legal and business considerations.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <span class="process-number">
+                    03
+                </span>
+
+                <h3>
+                    Strategize
+                </h3>
+
+                <p>
+                    Build the right path forward.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <span class="process-number">
+                    04
+                </span>
+
+                <h3>
+                    Execute
+                </h3>
+
+                <p>
+                    Turn strategy into action.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <span class="process-number">
+                    05
+                </span>
+
+                <h3>
+                    Grow
+                </h3>
+
+                <p>
+                    Support long-term business growth.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     GLOBAL ADVISORY
+========================================= -->
+
+<section class="global-section">
+
+    <div class="global-glow"></div>
+
+    <div class="container">
+
+        <div class="global-content">
+
+            <span class="section-label-light">
+                GLOBAL DESK
+            </span>
+
+
+            <h2>
+
+                India-rooted.
+                <span>Globally connected.</span>
+
+            </h2>
+
+
+            <p>
+
+                Supporting businesses navigating India,
+                international markets and cross-border
+                opportunities.
+
+            </p>
+
+
+            <div class="global-locations">
+
+                <span>UAE</span>
+                <span>Singapore</span>
+                <span>UK</span>
+                <span>USA</span>
+                <span>EU</span>
+                <span>Middle East</span>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="btn btn-light"
+            >
+
+                <span>
+                    Explore Global Desk
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INSIGHTS
+========================================= -->
+
+<section
+    class="section insights-section"
+    id="insights"
+>
+
+    <div class="container">
+
+        <div class="section-label">
+
+            <span>06</span>
+
+            <span>KNOWLEDGE CENTRE</span>
+
+        </div>
+
+
+        <div class="section-heading-row">
+
+            <h2>
+
+                Intelligence
+                <span>that moves business forward.</span>
+
+            </h2>
+
+
+            <a
+                href="#"
+                class="text-link"
+            >
+
+                <span>View all insights</span>
+
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="insights-grid">
+
+
+            <article class="insight-card">
+
+                <div class="insight-image">
+
+                    <img
+                        src="./assets/images/insight-01.jpg"
+                        alt="Corporate legal advisory"
+                        loading="lazy"
+                    >
+
+                    <span>
+                        LEGAL UPDATE
+                    </span>
+
+                </div>
+
+
+                <div class="insight-content">
+
+                    <span>
+                        01 / 2026
+                    </span>
+
+                    <h3>
+                        Corporate & Regulatory
+                        Developments
+                    </h3>
+
+                    <a href="#">
+                        Read insight ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="insight-card">
+
+                <div class="insight-image">
+
+                    <img
+                        src="./assets/images/insight-02.jpg"
+                        alt="Business strategy"
+                        loading="lazy"
+                    >
+
+                    <span>
+                        BUSINESS
+                    </span>
+
+                </div>
+
+
+                <div class="insight-content">
+
+                    <span>
+                        02 / 2026
+                    </span>
+
+                    <h3>
+                        Strategic Considerations
+                        for Growing Businesses
+                    </h3>
+
+                    <a href="#">
+                        Read insight ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="insight-card">
+
+                <div class="insight-image">
+
+                    <img
+                        src="./assets/images/insight-03.jpg"
+                        alt="Regulatory compliance"
+                        loading="lazy"
+                    >
+
+                    <span>
+                        REGULATORY
+                    </span>
+
+                </div>
+
+
+                <div class="insight-content">
+
+                    <span>
+                        03 / 2026
+                    </span>
+
+                    <h3>
+                        Regulatory Alerts &
+                        Government Notifications
+                    </h3>
+
+                    <a href="#">
+                        Read insight ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     TESTIMONIAL
+========================================= -->
+
+<section class="testimonial-section">
+
+    <div class="container">
+
+        <div class="testimonial-label">
+            CLIENT PERSPECTIVE
+        </div>
+
+
+        <div class="testimonial-content">
+
+            <span class="quote-mark">
+                “
+            </span>
+
+
+            <blockquote>
+
+                Strategic legal thinking should not
+                merely protect a business — it should
+                help that business move forward.
+
+            </blockquote>
+
+
+            <div class="testimonial-author">
+
+                <span class="author-line"></span>
+
+                <div>
+
+                    <strong>
+                        Astronis
+                    </strong>
+
+                    <span>
+                        Legal Intelligence
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL CTA
+========================================= -->
+
+<section class="cta-section">
+
+    <div class="cta-background"></div>
+
+    <div class="cta-orb"></div>
+
+    <div class="container">
+
+        <div class="cta-content">
+
+            <span class="section-label-light">
+                START A CONVERSATION
+            </span>
+
+
+            <h2>
+
+                Let's build
+                <span>what's next.</span>
+
+            </h2>
+
+
+            <p>
+
+                Tell us where your business is going.
+                We'll help you navigate the legal path.
+
+            </p>
+
+
+            <a
+                href="./contact.html"
+                class="cta-button"
+            >
+
+                <span>
+                    Schedule a Consultation
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-top">
+
+
+            <div class="footer-brand">
+
+                <img
+                    src="./assets/logo/astronis-logo.png"
+                    alt="Astronis"
+                >
+
+                <p>
+
+                    Corporate, regulatory and business
+                    advisory through legal intelligence.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="./about.html">
+                    About
+                </a>
+
+                <a href="./services.html">
+                    Services
+                </a>
+
+                <a href="#industries">
+                    Industries
+                </a>
+
+                <a href="#insights">
+                    Insights
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+                <a href="./contact.html">
+                    Book Consultation
+                </a>
+
+                <a href="#">
+                    Delhi
+                </a>
+
+                <a href="#">
+                    Mumbai
+                </a>
+
+                <a href="#">
+                    Bengaluru
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Connect
+                </h4>
+
+                <a href="#">
+                    LinkedIn
+                </a>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    WhatsApp
+                </a>
+
+                <a href="#">
+                    Email
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Astronis. All rights reserved.
+            </span>
+
+
+            <div>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Disclaimer
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     SCRIPTS
+========================================= -->
+
+<!-- GSAP -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+></script>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+></script>
+
+
+<!-- LENIS SMOOTH SCROLL -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"
+></script>
+
+
+<!-- ASTRONIS JS -->
+
+<script src="./js/main.js"></script>
 
 </body>
 </html>
