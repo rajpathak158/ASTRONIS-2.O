@@ -10,41 +10,48 @@
 
     <meta
         name="description"
-        content="Astronis — Corporate, Regulatory & Business Advisory. Enabling business growth through legal intelligence."
+        content="Astronis — Strategic legal counsel built for clarity, confidence and lasting impact."
     >
 
-    <meta
-        name="theme-color"
-        content="#030914"
-    >
+    <meta name="theme-color" content="#06152f">
 
-    <title>Astronis | Law. Strategy. Advantage.</title>
+    <title>Astronis | Law & Legal Counsel</title>
 
-    <!-- ================================
-         GOOGLE FONTS
-    ================================= -->
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- ================================
-         MAIN CSS
-    ================================= -->
+    <!-- =====================================================
+         ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animation.css">
 
 </head>
 
 <body>
 
-<!-- =========================================
-     CINEMATIC PAGE LOADER
-========================================= -->
+<!-- =========================================================
+     PAGE LOADER
+========================================================= -->
 
 <div class="page-loader" id="pageLoader">
 
@@ -52,7 +59,7 @@
 
         <div class="loader-logo">
             <img
-                src="./assets/logo/astronis-logo.png"
+                src="./assets/images/astronis-logo.png"
                 alt="Astronis"
             >
         </div>
@@ -61,27 +68,35 @@
             <span></span>
         </div>
 
-        <p>LEGAL INTELLIGENCE</p>
+        <p>PRECISION • COUNSEL • RESULTS</p>
 
     </div>
 
 </div>
 
 
-<!-- =========================================
+<!-- =========================================================
+     CURSOR
+========================================================= -->
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+
+<!-- =========================================================
      NAVIGATION
-========================================= -->
+========================================================= -->
 
 <header class="site-header" id="siteHeader">
 
-    <div class="nav-container">
+    <nav class="navbar">
 
         <!-- LOGO -->
 
-        <a href="./index.html" class="brand">
+        <a href="#home" class="brand">
 
             <img
-                src="./assets/logo/astronis-logo.png"
+                src="./assets/images/astronis-logo.png"
                 alt="Astronis"
             >
 
@@ -90,348 +105,386 @@
 
         <!-- DESKTOP NAVIGATION -->
 
-        <nav class="desktop-nav" aria-label="Main navigation">
+        <div class="nav-links">
 
-            <a href="./about.html">
-                About
-            </a>
-
-            <a href="./services.html">
-                Services
-            </a>
-
-            <a href="#industries">
-                Industries
-            </a>
-
-            <a href="#insights">
-                Insights
-            </a>
-
-            <a href="./contact.html">
-                Contact
-            </a>
-
-        </nav>
-
-
-        <!-- NAVIGATION ACTIONS -->
-
-        <div class="nav-actions">
-
-            <a
-                href="./contact.html"
-                class="nav-consultation"
-            >
-                <span>Consultation</span>
-                <span class="arrow">↗</span>
-            </a>
-
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open menu"
-                aria-expanded="false"
-            >
-
-                <span></span>
-                <span></span>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================
-     FULL SCREEN MOBILE MENU
-========================================= -->
-
-<div class="mobile-menu" id="mobileMenu">
-
-    <div class="mobile-menu-bg"></div>
-
-    <div class="mobile-menu-content">
-
-        <div class="mobile-menu-label">
-            ASTRONIS / MENU
-        </div>
-
-        <nav>
-
-            <a href="./about.html">
+            <a href="#home" class="nav-link active">
                 <span>01</span>
+                Home
+            </a>
+
+            <a href="#about" class="nav-link">
+                <span>02</span>
                 About
             </a>
 
-            <a href="./services.html">
-                <span>02</span>
-                Services
-            </a>
-
-            <a href="#industries">
+            <a href="#practice" class="nav-link">
                 <span>03</span>
-                Industries
+                Practice Areas
             </a>
 
-            <a href="#insights">
+            <a href="#approach" class="nav-link">
                 <span>04</span>
-                Knowledge Centre
+                Our Approach
             </a>
 
-            <a href="./contact.html">
+            <a href="#contact" class="nav-link">
                 <span>05</span>
                 Contact
             </a>
 
-        </nav>
-
-        <div class="mobile-menu-footer">
-
-            <span>Delhi</span>
-            <span>Mumbai</span>
-            <span>Bengaluru</span>
-            <span>Global Advisory</span>
-
         </div>
+
+
+        <!-- CTA -->
+
+        <a href="#contact" class="nav-cta">
+
+            <span>Speak With Us</span>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+        </a>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation"
+        >
+
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-inner">
+
+        <p class="mobile-menu-label">
+            ASTRONIS
+        </p>
+
+        <a href="#home" class="mobile-link">
+            <span>01</span>
+            Home
+        </a>
+
+        <a href="#about" class="mobile-link">
+            <span>02</span>
+            About
+        </a>
+
+        <a href="#practice" class="mobile-link">
+            <span>03</span>
+            Practice Areas
+        </a>
+
+        <a href="#approach" class="mobile-link">
+            <span>04</span>
+            Our Approach
+        </a>
+
+        <a href="#contact" class="mobile-link">
+            <span>05</span>
+            Contact
+        </a>
 
     </div>
 
 </div>
 
 
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <main>
 
+<section
+    class="hero"
+    id="home"
+>
 
-<!-- =========================================
-     HERO
-========================================= -->
+    <!-- CINEMATIC BACKGROUND -->
 
-<section class="hero" id="hero">
+    <div class="hero-background">
 
-    <!-- ATMOSPHERE -->
+        <div class="hero-image"></div>
 
-    <div class="hero-atmosphere"></div>
+        <div class="hero-gradient"></div>
 
-    <div class="hero-grid"></div>
+        <div class="hero-grid"></div>
 
-    <div class="hero-orb hero-orb-one"></div>
+        <div class="gold-light"></div>
 
-    <div class="hero-orb hero-orb-two"></div>
+    </div>
 
 
     <!-- HERO CONTENT -->
 
-    <div class="hero-content">
+    <div class="container hero-container">
 
-        <div class="hero-eyebrow reveal">
+        <div class="hero-content">
 
-            <span class="eyebrow-line"></span>
+            <div class="hero-eyebrow reveal-up">
 
-            <span>
-                CORPORATE · REGULATORY · BUSINESS
-            </span>
+                <span class="eyebrow-line"></span>
 
-        </div>
-
-
-        <h1 class="hero-title">
-
-            <span class="title-line reveal">
-                Enabling
-            </span>
-
-            <span class="title-line reveal">
-                <em>Business Growth</em>
-            </span>
-
-            <span class="title-line reveal">
-                Through Legal Intelligence.
-            </span>
-
-        </h1>
-
-
-        <p class="hero-description reveal">
-
-            Corporate, regulatory and strategic legal advisory
-            designed to help ambitious businesses navigate
-            complexity, manage risk and move forward with confidence.
-
-        </p>
-
-
-        <!-- HERO BUTTONS -->
-
-        <div class="hero-actions reveal">
-
-            <a
-                href="./contact.html"
-                class="btn btn-primary"
-            >
-
-                <span>Schedule Consultation</span>
-
-                <span class="btn-arrow">↗</span>
-
-            </a>
-
-
-            <a
-                href="./services.html"
-                class="btn btn-outline"
-            >
-
-                <span>Explore Services</span>
-
-                <span class="btn-arrow">↗</span>
-
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- HERO SIDE LABEL -->
-
-    <div class="hero-side-label">
-
-        <span>ASTRONIS</span>
-
-        <span>LEGAL INTELLIGENCE</span>
-
-    </div>
-
-
-    <!-- HERO BOTTOM DATA -->
-
-    <div class="hero-data">
-
-        <div class="hero-data-item">
-
-            <strong>2015</strong>
-
-            <span>Established</span>
-
-        </div>
-
-
-        <div class="hero-data-item">
-
-            <strong>11+</strong>
-
-            <span>Years Experience</span>
-
-        </div>
-
-
-        <div class="hero-data-item">
-
-            <strong>1000+</strong>
-
-            <span>Advisory Assignments</span>
-
-        </div>
-
-
-        <div class="hero-data-item">
-
-            <strong>GLOBAL</strong>
-
-            <span>Advisory Network</span>
-
-        </div>
-
-    </div>
-
-
-    <!-- SCROLL INDICATOR -->
-
-    <a
-        href="#why-astronis"
-        class="scroll-indicator"
-    >
-
-        <span>Scroll to explore</span>
-
-        <div class="scroll-line"></div>
-
-    </a>
-
-</section>
-
-
-
-<!-- =========================================
-     INTRO / WHY ASTRONIS
-========================================= -->
-
-<section
-    class="section intro-section"
-    id="why-astronis"
->
-
-    <div class="container">
-
-        <div class="section-label">
-
-            <span>01</span>
-
-            <span>WHY ASTRONIS</span>
-
-        </div>
-
-
-        <div class="intro-layout">
-
-            <div class="intro-heading">
-
-                <h2>
-
-                    Legal thinking
-                    <span>built around</span>
-                    business.
-
-                </h2>
+                <span>
+                    ASTRONIS LAW
+                </span>
 
             </div>
 
 
-            <div class="intro-copy">
+            <h1 class="hero-title">
 
-                <p class="large-copy">
+                <span class="title-line reveal-up">
+                    Law with
+                </span>
 
-                    Astronis brings together legal expertise,
-                    regulatory intelligence and commercial
-                    understanding to help businesses make
-                    confident decisions.
+                <span class="title-line title-highlight reveal-up">
+                    clarity.
+                </span>
+
+                <span class="title-line reveal-up">
+                    Strategy with purpose.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description reveal-up">
+
+                Strategic legal counsel designed to protect
+                what matters, resolve complexity and create
+                confidence for every step ahead.
+
+            </p>
+
+
+            <div class="hero-actions reveal-up">
+
+                <a
+                    href="#contact"
+                    class="btn btn-primary"
+                >
+
+                    <span>
+                        Discuss Your Matter
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+
+                <a
+                    href="#practice"
+                    class="btn btn-outline"
+                >
+
+                    <span>
+                        Explore Our Expertise
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO SIDE INFO -->
+
+        <div class="hero-side">
+
+            <div class="hero-side-line"></div>
+
+            <p>
+                INTEGRITY<br>
+                PRECISION<br>
+                EXPERIENCE
+            </p>
+
+        </div>
+
+
+        <!-- SCROLL -->
+
+        <a
+            href="#about"
+            class="scroll-indicator"
+        >
+
+            <span class="scroll-text">
+                SCROLL TO EXPLORE
+            </span>
+
+            <span class="scroll-line"></span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO / STATEMENT
+========================================================= -->
+
+<section class="statement section-dark">
+
+    <div class="container">
+
+        <div class="statement-grid">
+
+            <div class="section-number">
+                01
+            </div>
+
+
+            <div class="statement-content">
+
+                <p class="section-kicker">
+                    THE ASTRONIS PERSPECTIVE
+                </p>
+
+                <h2 class="statement-title">
+
+                    Complex legal challenges
+                    <span>deserve clear thinking.</span>
+
+                </h2>
+
+                <div class="statement-divider"></div>
+
+                <p class="statement-text">
+
+                    At Astronis, our approach begins with
+                    understanding the bigger picture. We combine
+                    legal insight, strategic thinking and meticulous
+                    execution to help clients navigate important
+                    decisions with confidence.
 
                 </p>
 
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    class="about section-light"
+    id="about"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-index">
+                02
+            </div>
+
+            <div>
+
+                <p class="section-kicker dark">
+                    ABOUT ASTRONIS
+                </p>
+
+                <h2>
+                    Built around
+                    <em>your interests.</em>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <!-- IMAGE -->
+
+            <div class="about-image reveal-image">
+
+                <div class="image-frame">
+
+                    <img
+                        src="./assets/images/about.jpg"
+                        alt="Astronis legal counsel"
+                        loading="lazy"
+                    >
+
+                    <div class="image-overlay"></div>
+
+                </div>
+
+                <span class="image-caption">
+                    ASTRONIS / LEGAL COUNSEL
+                </span>
+
+            </div>
+
+
+            <!-- TEXT -->
+
+            <div class="about-content">
+
+                <p class="large-copy">
+
+                    We believe exceptional legal work is
+                    more than knowing the law.
+
+                </p>
 
                 <p>
 
-                    From corporate structuring and regulatory
-                    compliance to strategic transactions and
-                    international expansion, our approach is
-                    designed around the realities of business.
+                    It is about understanding people, businesses,
+                    risks and opportunities — then turning that
+                    understanding into a clear legal strategy.
+
+                </p>
+
+                <p>
+
+                    Our work is built on careful analysis,
+                    direct communication and a commitment to
+                    achieving meaningful outcomes.
 
                 </p>
 
 
                 <a
-                    href="./about.html"
+                    href="#contact"
                     class="text-link"
                 >
 
-                    <span>Discover Astronis</span>
+                    Learn more about Astronis
 
-                    <span>↗</span>
+                    <i class="fa-solid fa-arrow-right"></i>
 
                 </a>
 
@@ -444,571 +497,225 @@
 </section>
 
 
-
-<!-- =========================================
-     EXPERIENCE STATEMENT
-========================================= -->
-
-<section class="statement-section">
-
-    <div class="statement-background"></div>
-
-    <div class="container">
-
-        <div class="statement-content">
-
-            <span class="statement-label">
-                LEGAL × BUSINESS × STRATEGY
-            </span>
-
-            <h2>
-
-                Turning complexity
-                <span>into clarity.</span>
-
-            </h2>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     INDUSTRIES
-========================================= -->
+<!-- =========================================================
+     PRACTICE AREAS
+========================================================= -->
 
 <section
-    class="section industries-section"
-    id="industries"
+    class="practice section-dark"
+    id="practice"
 >
 
     <div class="container">
 
-        <div class="section-label">
+        <div class="section-heading light-heading">
 
-            <span>02</span>
+            <div class="section-index">
+                03
+            </div>
 
-            <span>INDUSTRIES WE SERVE</span>
+            <div>
 
-        </div>
-
-
-        <div class="section-heading-row">
-
-            <h2>
-
-                Built for
-                <span>complex industries.</span>
-
-            </h2>
-
-            <p>
-
-                Sector-specific legal and regulatory
-                understanding for businesses operating
-                in rapidly changing environments.
-
-            </p>
-
-        </div>
-
-
-        <div class="industries-list">
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">01</span>
-
-                <span class="industry-name">
-                    FinTech
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">02</span>
-
-                <span class="industry-name">
-                    Banking & Financial Services
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">03</span>
-
-                <span class="industry-name">
-                    Technology & IT
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">04</span>
-
-                <span class="industry-name">
-                    Healthcare & Pharmaceuticals
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">05</span>
-
-                <span class="industry-name">
-                    Manufacturing
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">06</span>
-
-                <span class="industry-name">
-                    Infrastructure & Real Estate
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">07</span>
-
-                <span class="industry-name">
-                    Energy
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-
-            <a href="#" class="industry-item">
-
-                <span class="industry-number">08</span>
-
-                <span class="industry-name">
-                    E-Commerce & Retail
-                </span>
-
-                <span class="industry-arrow">↗</span>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     CORE SERVICES
-========================================= -->
-
-<section
-    class="section services-section"
-    id="services"
->
-
-    <div class="container">
-
-        <div class="section-label">
-
-            <span>03</span>
-
-            <span>CORE SERVICES</span>
-
-        </div>
-
-
-        <div class="section-heading-row">
-
-            <h2>
-
-                Strategic legal
-                <span>expertise.</span>
-
-            </h2>
-
-            <a
-                href="./services.html"
-                class="text-link"
-            >
-
-                <span>View all services</span>
-
-                <span>↗</span>
-
-            </a>
-
-        </div>
-
-
-        <div class="services-grid">
-
-
-            <!-- SERVICE 01 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>01</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    Corporate Advisory
-                </h3>
-
-                <p>
-
-                    Corporate structuring, governance,
-                    restructuring and strategic business
-                    advisory.
-
+                <p class="section-kicker">
+                    OUR EXPERTISE
                 </p>
-
-            </article>
-
-
-            <!-- SERVICE 02 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>02</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    Startup & Investment
-                </h3>
-
-                <p>
-
-                    Startup India, fundraising, investment
-                    structures, ESOPs and founder advisory.
-
-                </p>
-
-            </article>
-
-
-            <!-- SERVICE 03 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>03</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    Intellectual Property
-                </h3>
-
-                <p>
-
-                    Trademark, patent, copyright, licensing,
-                    technology and brand protection.
-
-                </p>
-
-            </article>
-
-
-            <!-- SERVICE 04 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>04</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    Banking & RBI
-                </h3>
-
-                <p>
-
-                    RBI, NBFC, FinTech, payment systems,
-                    FEMA and financial-services compliance.
-
-                </p>
-
-            </article>
-
-
-            <!-- SERVICE 05 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>05</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    Regulatory Compliance
-                </h3>
-
-                <p>
-
-                    Regulatory frameworks, corporate compliance,
-                    data protection and risk management.
-
-                </p>
-
-            </article>
-
-
-            <!-- SERVICE 06 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>06</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    International Business
-                </h3>
-
-                <p>
-
-                    Cross-border transactions, foreign investment,
-                    India entry and global expansion.
-
-                </p>
-
-            </article>
-
-
-            <!-- SERVICE 07 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>07</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    Corporate Governance
-                </h3>
-
-                <p>
-
-                    Board advisory, governance frameworks,
-                    risk oversight and corporate strategy.
-
-                </p>
-
-            </article>
-
-
-            <!-- SERVICE 08 -->
-
-            <article class="service-card">
-
-                <div class="service-card-top">
-
-                    <span>08</span>
-
-                    <span>↗</span>
-
-                </div>
-
-                <h3>
-                    Contracts & Transactions
-                </h3>
-
-                <p>
-
-                    Commercial contracts, technology agreements,
-                    M&A and strategic transactions.
-
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     WHY CLIENTS
-========================================= -->
-
-<section class="section clients-section">
-
-    <div class="container">
-
-        <div class="section-label">
-
-            <span>04</span>
-
-            <span>WHY CLIENTS CHOOSE ASTRONIS</span>
-
-        </div>
-
-
-        <div class="clients-layout">
-
-
-            <div class="clients-heading">
 
                 <h2>
-
-                    Advice that
-                    understands
-                    <span>business.</span>
-
+                    Areas of
+                    <em>practice.</em>
                 </h2>
 
             </div>
 
+        </div>
 
-            <div class="clients-points">
 
+        <div class="practice-list">
 
-                <div class="client-point">
+            <!-- ITEM 01 -->
 
-                    <span>01</span>
+            <a
+                href="#contact"
+                class="practice-item"
+            >
 
-                    <div>
+                <div class="practice-number">
+                    01
+                </div>
 
-                        <h3>
-                            Business-first approach
-                        </h3>
+                <div class="practice-name">
+                    Corporate & Commercial
+                </div>
 
-                        <p>
-                            Legal advice connected to
-                            commercial objectives.
-                        </p>
+                <div class="practice-description">
 
-                    </div>
+                    Strategic legal support for businesses,
+                    transactions and commercial decisions.
 
                 </div>
 
+                <div class="practice-arrow">
 
-                <div class="client-point">
-
-                    <span>02</span>
-
-                    <div>
-
-                        <h3>
-                            Commercial understanding
-                        </h3>
-
-                        <p>
-                            We look beyond the legal question
-                            to understand the business context.
-                        </p>
-
-                    </div>
+                    <i class="fa-solid fa-arrow-up-right"></i>
 
                 </div>
 
+            </a>
 
-                <div class="client-point">
 
-                    <span>03</span>
+            <!-- ITEM 02 -->
 
-                    <div>
+            <a
+                href="#contact"
+                class="practice-item"
+            >
 
-                        <h3>
-                            Integrated advisory
-                        </h3>
+                <div class="practice-number">
+                    02
+                </div>
 
-                        <p>
-                            Corporate, regulatory and strategic
-                            perspectives working together.
-                        </p>
+                <div class="practice-name">
+                    Dispute Resolution
+                </div>
 
-                    </div>
+                <div class="practice-description">
+
+                    Focused representation and strategic
+                    approaches to complex disputes.
 
                 </div>
 
+                <div class="practice-arrow">
 
-                <div class="client-point">
-
-                    <span>04</span>
-
-                    <div>
-
-                        <h3>
-                            Partner-led advisory
-                        </h3>
-
-                        <p>
-                            Senior-level attention where it
-                            matters most.
-                        </p>
-
-                    </div>
+                    <i class="fa-solid fa-arrow-up-right"></i>
 
                 </div>
 
+            </a>
 
-            </div>
+
+            <!-- ITEM 03 -->
+
+            <a
+                href="#contact"
+                class="practice-item"
+            >
+
+                <div class="practice-number">
+                    03
+                </div>
+
+                <div class="practice-name">
+                    Advisory & Compliance
+                </div>
+
+                <div class="practice-description">
+
+                    Practical legal guidance designed to
+                    help clients make informed decisions.
+
+                </div>
+
+                <div class="practice-arrow">
+
+                    <i class="fa-solid fa-arrow-up-right"></i>
+
+                </div>
+
+            </a>
+
+
+            <!-- ITEM 04 -->
+
+            <a
+                href="#contact"
+                class="practice-item"
+            >
+
+                <div class="practice-number">
+                    04
+                </div>
+
+                <div class="practice-name">
+                    Intellectual Property
+                </div>
+
+                <div class="practice-description">
+
+                    Protecting valuable ideas, brands,
+                    creations and intellectual assets.
+
+                </div>
+
+                <div class="practice-arrow">
+
+                    <i class="fa-solid fa-arrow-up-right"></i>
+
+                </div>
+
+            </a>
+
+
+            <!-- ITEM 05 -->
+
+            <a
+                href="#contact"
+                class="practice-item"
+            >
+
+                <div class="practice-number">
+                    05
+                </div>
+
+                <div class="practice-name">
+                    Real Estate & Property
+                </div>
+
+                <div class="practice-description">
+
+                    Legal guidance across property,
+                    development and related transactions.
+
+                </div>
+
+                <div class="practice-arrow">
+
+                    <i class="fa-solid fa-arrow-up-right"></i>
+
+                </div>
+
+            </a>
+
+
+            <!-- ITEM 06 -->
+
+            <a
+                href="#contact"
+                class="practice-item"
+            >
+
+                <div class="practice-number">
+                    06
+                </div>
+
+                <div class="practice-name">
+                    Technology & Emerging Business
+                </div>
+
+                <div class="practice-description">
+
+                    Counsel for businesses operating in
+                    rapidly evolving industries.
+
+                </div>
+
+                <div class="practice-arrow">
+
+                    <i class="fa-solid fa-arrow-up-right"></i>
+
+                </div>
+
+            </a>
 
         </div>
 
@@ -1017,77 +724,122 @@
 </section>
 
 
+<!-- =========================================================
+     GOLDEN BLUE FEATURE SECTION
+========================================================= -->
 
-<!-- =========================================
-     PROCESS
-========================================= -->
+<section class="feature-section">
 
-<section class="process-section">
+    <div class="feature-background">
+
+        <div class="feature-orb orb-one"></div>
+        <div class="feature-orb orb-two"></div>
+
+        <div class="feature-grid"></div>
+
+    </div>
+
 
     <div class="container">
 
-        <div class="section-label">
+        <div class="feature-content">
 
-            <span>05</span>
-
-            <span>OUR PROCESS</span>
-
-        </div>
-
-
-        <div class="process-heading">
+            <p class="section-kicker">
+                WHY ASTRONIS
+            </p>
 
             <h2>
-
-                From question
-                <span>to execution.</span>
-
+                Precision in every
+                <span>decision.</span>
             </h2>
+
+            <p>
+
+                When the stakes are high, clarity matters.
+                Astronis combines disciplined legal analysis
+                with a practical understanding of your goals.
+
+            </p>
+
+            <a
+                href="#contact"
+                class="btn btn-gold"
+            >
+
+                Start a conversation
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     APPROACH
+========================================================= -->
+
+<section
+    class="approach section-light"
+    id="approach"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-index">
+                04
+            </div>
+
+            <div>
+
+                <p class="section-kicker dark">
+                    OUR APPROACH
+                </p>
+
+                <h2>
+                    Clear thinking.
+                    <em>Deliberate action.</em>
+                </h2>
+
+            </div>
 
         </div>
 
 
-        <div class="process-track">
+        <div class="approach-grid">
 
+            <!-- STEP -->
 
-            <div class="process-item">
+            <div class="approach-card">
 
-                <span class="process-number">
+                <span class="approach-card-number">
                     01
                 </span>
 
                 <h3>
-                    Consult
+                    Understand
                 </h3>
 
                 <p>
-                    Understand the objective.
+
+                    We begin by understanding your objectives,
+                    circumstances and the legal landscape.
+
                 </p>
 
             </div>
 
 
-            <div class="process-item">
+            <div class="approach-card">
 
-                <span class="process-number">
+                <span class="approach-card-number">
                     02
-                </span>
-
-                <h3>
-                    Analyze
-                </h3>
-
-                <p>
-                    Identify legal and business considerations.
-                </p>
-
-            </div>
-
-
-            <div class="process-item">
-
-                <span class="process-number">
-                    03
                 </span>
 
                 <h3>
@@ -1095,16 +847,19 @@
                 </h3>
 
                 <p>
-                    Build the right path forward.
+
+                    We identify risks, opportunities and
+                    practical routes toward your desired outcome.
+
                 </p>
 
             </div>
 
 
-            <div class="process-item">
+            <div class="approach-card">
 
-                <span class="process-number">
-                    04
+                <span class="approach-card-number">
+                    03
                 </span>
 
                 <h3>
@@ -1112,29 +867,34 @@
                 </h3>
 
                 <p>
-                    Turn strategy into action.
+
+                    We translate strategy into decisive,
+                    carefully managed legal action.
+
                 </p>
 
             </div>
 
 
-            <div class="process-item">
+            <div class="approach-card">
 
-                <span class="process-number">
-                    05
+                <span class="approach-card-number">
+                    04
                 </span>
 
                 <h3>
-                    Grow
+                    Deliver
                 </h3>
 
                 <p>
-                    Support long-term business growth.
+
+                    We remain focused on the outcome and
+                    the long-term interests behind the matter.
+
                 </p>
 
             </div>
 
-
         </div>
 
     </div>
@@ -1142,346 +902,37 @@
 </section>
 
 
+<!-- =========================================================
+     QUOTE / CINEMATIC BREAK
+========================================================= -->
 
-<!-- =========================================
-     GLOBAL ADVISORY
-========================================= -->
+<section class="quote-section">
 
-<section class="global-section">
+    <div class="quote-background"></div>
 
-    <div class="global-glow"></div>
-
-    <div class="container">
-
-        <div class="global-content">
-
-            <span class="section-label-light">
-                GLOBAL DESK
-            </span>
-
-
-            <h2>
-
-                India-rooted.
-                <span>Globally connected.</span>
-
-            </h2>
-
-
-            <p>
-
-                Supporting businesses navigating India,
-                international markets and cross-border
-                opportunities.
-
-            </p>
-
-
-            <div class="global-locations">
-
-                <span>UAE</span>
-                <span>Singapore</span>
-                <span>UK</span>
-                <span>USA</span>
-                <span>EU</span>
-                <span>Middle East</span>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="btn btn-light"
-            >
-
-                <span>
-                    Explore Global Desk
-                </span>
-
-                <span>
-                    ↗
-                </span>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     INSIGHTS
-========================================= -->
-
-<section
-    class="section insights-section"
-    id="insights"
->
+    <div class="quote-overlay"></div>
 
     <div class="container">
 
-        <div class="section-label">
-
-            <span>06</span>
-
-            <span>KNOWLEDGE CENTRE</span>
-
-        </div>
-
-
-        <div class="section-heading-row">
-
-            <h2>
-
-                Intelligence
-                <span>that moves business forward.</span>
-
-            </h2>
-
-
-            <a
-                href="#"
-                class="text-link"
-            >
-
-                <span>View all insights</span>
-
-                <span>↗</span>
-
-            </a>
-
-        </div>
-
-
-        <div class="insights-grid">
-
-
-            <article class="insight-card">
-
-                <div class="insight-image">
-
-                    <img
-                        src="./assets/images/insight-01.jpg"
-                        alt="Corporate legal advisory"
-                        loading="lazy"
-                    >
-
-                    <span>
-                        LEGAL UPDATE
-                    </span>
-
-                </div>
-
-
-                <div class="insight-content">
-
-                    <span>
-                        01 / 2026
-                    </span>
-
-                    <h3>
-                        Corporate & Regulatory
-                        Developments
-                    </h3>
-
-                    <a href="#">
-                        Read insight ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="insight-card">
-
-                <div class="insight-image">
-
-                    <img
-                        src="./assets/images/insight-02.jpg"
-                        alt="Business strategy"
-                        loading="lazy"
-                    >
-
-                    <span>
-                        BUSINESS
-                    </span>
-
-                </div>
-
-
-                <div class="insight-content">
-
-                    <span>
-                        02 / 2026
-                    </span>
-
-                    <h3>
-                        Strategic Considerations
-                        for Growing Businesses
-                    </h3>
-
-                    <a href="#">
-                        Read insight ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="insight-card">
-
-                <div class="insight-image">
-
-                    <img
-                        src="./assets/images/insight-03.jpg"
-                        alt="Regulatory compliance"
-                        loading="lazy"
-                    >
-
-                    <span>
-                        REGULATORY
-                    </span>
-
-                </div>
-
-
-                <div class="insight-content">
-
-                    <span>
-                        03 / 2026
-                    </span>
-
-                    <h3>
-                        Regulatory Alerts &
-                        Government Notifications
-                    </h3>
-
-                    <a href="#">
-                        Read insight ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     TESTIMONIAL
-========================================= -->
-
-<section class="testimonial-section">
-
-    <div class="container">
-
-        <div class="testimonial-label">
-            CLIENT PERSPECTIVE
-        </div>
-
-
-        <div class="testimonial-content">
+        <div class="quote-content">
 
             <span class="quote-mark">
                 “
             </span>
 
-
             <blockquote>
 
-                Strategic legal thinking should not
-                merely protect a business — it should
-                help that business move forward.
+                The strongest legal strategy
+                begins with a clear understanding
+                of what matters most.
 
             </blockquote>
 
-
-            <div class="testimonial-author">
-
-                <span class="author-line"></span>
-
-                <div>
-
-                    <strong>
-                        Astronis
-                    </strong>
-
-                    <span>
-                        Legal Intelligence
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     FINAL CTA
-========================================= -->
-
-<section class="cta-section">
-
-    <div class="cta-background"></div>
-
-    <div class="cta-orb"></div>
-
-    <div class="container">
-
-        <div class="cta-content">
-
-            <span class="section-label-light">
-                START A CONVERSATION
-            </span>
-
-
-            <h2>
-
-                Let's build
-                <span>what's next.</span>
-
-            </h2>
-
+            <div class="quote-line"></div>
 
             <p>
-
-                Tell us where your business is going.
-                We'll help you navigate the legal path.
-
+                ASTRONIS
             </p>
-
-
-            <a
-                href="./contact.html"
-                class="cta-button"
-            >
-
-                <span>
-                    Schedule a Consultation
-                </span>
-
-                <span>
-                    ↗
-                </span>
-
-            </a>
 
         </div>
 
@@ -1489,109 +940,258 @@
 
 </section>
 
-</main>
 
+<!-- =========================================================
+     CONTACT CTA
+========================================================= -->
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
-<footer class="site-footer">
+<section
+    class="contact section-dark"
+    id="contact"
+>
 
     <div class="container">
 
-        <div class="footer-top">
+        <div class="contact-grid">
 
+            <div class="contact-intro">
 
-            <div class="footer-brand">
+                <p class="section-kicker">
+                    05 / CONTACT
+                </p>
 
-                <img
-                    src="./assets/logo/astronis-logo.png"
-                    alt="Astronis"
-                >
+                <h2>
+                    Let's discuss
+                    <span>what comes next.</span>
+                </h2>
 
                 <p>
 
-                    Corporate, regulatory and business
-                    advisory through legal intelligence.
+                    Tell us about your legal matter and
+                    our team will get back to you.
 
                 </p>
 
             </div>
 
 
+            <!-- CONTACT FORM -->
+
+            <form
+                class="contact-form"
+                id="contactForm"
+            >
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="+91 XXXXX XXXXX"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="matter">
+                        How can we help?
+                    </label>
+
+                    <textarea
+                        id="matter"
+                        name="matter"
+                        rows="5"
+                        placeholder="Briefly describe your matter..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary form-submit"
+                >
+
+                    <span>
+                        Send Enquiry
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+                <p class="form-note">
+                    Your information will be handled
+                    with appropriate confidentiality.
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-top">
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <img
+                    src="./assets/images/astronis-logo.png"
+                    alt="Astronis"
+                >
+
+                <p>
+                    Strategic legal counsel
+                    with clarity and purpose.
+                </p>
+
+            </div>
+
+
+            <!-- NAV -->
+
             <div class="footer-column">
 
                 <h4>
-                    Explore
+                    Navigation
                 </h4>
 
-                <a href="./about.html">
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#about">
                     About
                 </a>
 
-                <a href="./services.html">
-                    Services
+                <a href="#practice">
+                    Practice Areas
                 </a>
 
-                <a href="#industries">
-                    Industries
+                <a href="#approach">
+                    Our Approach
                 </a>
 
-                <a href="#insights">
-                    Insights
+                <a href="#contact">
+                    Contact
                 </a>
 
             </div>
 
 
+            <!-- PRACTICE -->
+
             <div class="footer-column">
+
+                <h4>
+                    Expertise
+                </h4>
+
+                <a href="#practice">
+                    Corporate
+                </a>
+
+                <a href="#practice">
+                    Disputes
+                </a>
+
+                <a href="#practice">
+                    Advisory
+                </a>
+
+                <a href="#practice">
+                    Intellectual Property
+                </a>
+
+                <a href="#practice">
+                    Property
+                </a>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="footer-column footer-contact">
 
                 <h4>
                     Contact
                 </h4>
 
-                <a href="./contact.html">
-                    Book Consultation
+                <!-- REPLACE THESE WITH CLIENT DETAILS -->
+
+                <a href="mailto:info@astronis.com">
+                    info@astronis.com
                 </a>
 
-                <a href="#">
-                    Delhi
+                <a href="tel:+910000000000">
+                    +91 00000 00000
                 </a>
 
-                <a href="#">
-                    Mumbai
-                </a>
-
-                <a href="#">
-                    Bengaluru
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Connect
-                </h4>
-
-                <a href="#">
-                    LinkedIn
-                </a>
-
-                <a href="#">
-                    Instagram
-                </a>
-
-                <a href="#">
-                    WhatsApp
-                </a>
-
-                <a href="#">
-                    Email
-                </a>
+                <p>
+                    Your office address<br>
+                    City, State, India
+                </p>
 
             </div>
 
@@ -1600,19 +1200,15 @@
 
         <div class="footer-bottom">
 
-            <span>
-                © 2026 Astronis. All rights reserved.
-            </span>
+            <p>
+                © <span id="currentYear"></span>
+                Astronis. All rights reserved.
+            </p>
 
-
-            <div>
+            <div class="footer-legal">
 
                 <a href="#">
                     Privacy Policy
-                </a>
-
-                <a href="#">
-                    Disclaimer
                 </a>
 
                 <a href="#">
@@ -1621,40 +1217,140 @@
 
             </div>
 
+            <p class="footer-credit">
+                Designed with precision.
+            </p>
+
         </div>
 
     </div>
 
 </footer>
 
+</main>
 
 
-<!-- =========================================
+<!-- =========================================================
      SCRIPTS
-========================================= -->
+========================================================= -->
 
 <!-- GSAP -->
 
 <script
-    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
 ></script>
-
 
 <script
-    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
 ></script>
-
 
 <!-- LENIS SMOOTH SCROLL -->
 
 <script
-    src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"
+    src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
 ></script>
 
 
 <!-- ASTRONIS JS -->
 
-<script src="./js/main.js"></script>
+<script src="./js/animation.js"></script>
+
+
+<!-- =========================================================
+     FALLBACK / BASIC JS
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* Current year */
+
+    const year = document.getElementById("currentYear");
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+
+    /* Mobile menu */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    const mobileLinks =
+        document.querySelectorAll(".mobile-link");
+
+
+    if (menuToggle && mobileMenu) {
+
+        menuToggle.addEventListener("click", () => {
+
+            menuToggle.classList.toggle("active");
+
+            mobileMenu.classList.toggle("active");
+
+            document.body.classList.toggle("menu-open");
+
+        });
+
+    }
+
+
+    mobileLinks.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            menuToggle.classList.remove("active");
+
+            mobileMenu.classList.remove("active");
+
+            document.body.classList.remove("menu-open");
+
+        });
+
+    });
+
+
+    /* Contact form */
+
+    const form =
+        document.getElementById("contactForm");
+
+    if (form) {
+
+        form.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+            const button =
+                form.querySelector("button");
+
+            const originalText =
+                button.querySelector("span").textContent;
+
+            button.querySelector("span").textContent =
+                "Thank you";
+
+            setTimeout(() => {
+
+                button.querySelector("span").textContent =
+                    originalText;
+
+                form.reset();
+
+            }, 2500);
+
+        });
+
+    }
+
+});
+
+</script>
 
 </body>
-</html>
+                </html>
