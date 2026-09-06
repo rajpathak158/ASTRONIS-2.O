@@ -1,6 +1,7 @@
 /* =========================================================
-   ASTRONIS — CINEMATIC ENGINE
-   ========================================================= */
+   ASTRONIS
+   Cinematic Animation Engine
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -8,229 +9,545 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       GSAP CHECK
-    ===================================================== */
+       REGISTER GSAP
+    ====================================================== */
 
-    const hasGSAP =
-        typeof gsap !== "undefined";
+    if (typeof gsap !== "undefined") {
 
-    const hasScrollTrigger =
-        typeof ScrollTrigger !== "undefined";
-
-
-    if (hasGSAP && hasScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
-    }
-
-
-    /* =====================================================
-       LENIS — SMOOTH SCROLL
-    ===================================================== */
-
-    let lenis = null;
-
-    if (typeof Lenis !== "undefined") {
-
-        lenis = new Lenis({
-            duration: 1.15,
-            smoothWheel: true,
-            touchMultiplier: 1.1,
-            wheelMultiplier: 0.9
-        });
-
-
-        function raf(time) {
-
-            lenis.raf(time);
-
-            requestAnimationFrame(raf);
-
-        }
-
-        requestAnimationFrame(raf);
-
-
-        if (hasGSAP && hasScrollTrigger) {
-
-            lenis.on("scroll", ScrollTrigger.update);
-
-            gsap.ticker.add((time) => {
-
-                lenis.raf(time * 1000);
-
-            });
-
-            gsap.ticker.lagSmoothing(0);
-
-        }
 
     }
 
 
     /* =====================================================
        PAGE LOADER
-    ===================================================== */
+    ====================================================== */
 
-    const loader =
-        document.getElementById("pageLoader");
+    const loader = document.getElementById("pageLoader");
 
-    const loaderLine =
-        document.querySelector(".loader-line span");
+    const startSite = () => {
 
+        if (typeof gsap === "undefined") {
 
-    function startLoader() {
-
-        if (!loader) return;
-
-
-        if (hasGSAP) {
-
-            const timeline =
-                gsap.timeline();
-
-
-            timeline
-                .to(loaderLine, {
-                    scaleX: 1,
-                    duration: 1.4,
-                    ease: "power3.inOut"
-                })
-
-                .to(loader, {
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.inOut",
-                    onComplete: () => {
-
-                        loader.style.visibility =
-                            "hidden";
-
-                        loader.style.pointerEvents =
-                            "none";
-
-                    }
-                }, "+=0.15")
-
-                .add(() => {
-
-                    revealHero();
-
-                });
-
-        } else {
-
-            setTimeout(() => {
-
-                loader.style.opacity = "0";
-
-                setTimeout(() => {
-
-                    loader.style.visibility =
-                        "hidden";
-
-                    revealHero();
-
-                }, 700);
-
-            }, 1300);
-
-        }
-
-    }
-
-
-    window.addEventListener(
-        "load",
-        startLoader
-    );
-
-
-    /* =====================================================
-       HERO REVEAL
-    ===================================================== */
-
-    function revealHero() {
-
-        const heroElements =
-            document.querySelectorAll(
-                ".hero .reveal"
-            );
-
-
-        if (!hasGSAP) {
-
-            heroElements.forEach((element) => {
-
-                element.style.opacity = "1";
-                element.style.transform =
-                    "translateY(0)";
-
-            });
+            if (loader) {
+                loader.style.display = "none";
+            }
 
             return;
 
         }
 
 
-        const timeline =
-            gsap.timeline();
+        const loaderTimeline = gsap.timeline({
+            defaults: {
+                ease: "power3.out"
+            }
+        });
+
+
+        loaderTimeline
+            .to(".loader-logo", {
+                opacity: 1,
+                y: 0,
+                duration: 0.9
+            })
+
+            .to(".loader-line", {
+                opacity: 1,
+                duration: 0.3
+            }, "-=0.4")
+
+            .to(".loader-line span", {
+                width: "100%",
+                duration: 1.2,
+                ease: "power2.inOut"
+            })
+
+            .to(".loader-inner p", {
+                opacity: 1,
+                y: 0,
+                duration: 0.5
+            }, "-=0.4")
+
+            .to(loader, {
+                clipPath: "inset(0 0 100% 0)",
+                duration: 1.1,
+                ease: "power4.inOut",
+                onComplete: () => {
+
+                    loader.style.display = "none";
+
+                    heroIntro();
+
+                }
+            });
+
+    };
+
+
+    /* =====================================================
+       HERO INTRO
+    ====================================================== */
+
+    const heroIntro = () => {
+
+        if (typeof gsap === "undefined") {
+            return;
+        }
+
+
+        const timeline = gsap.timeline({
+            defaults: {
+                ease: "power4.out"
+            }
+        });
 
 
         timeline
-            .to(".hero-eyebrow.reveal", {
+
+            .to(".hero-eyebrow", {
                 opacity: 1,
                 y: 0,
-                duration: 0.9,
-                ease: "power3.out"
+                duration: 0.8
             })
 
-            .to(".hero-title .title-line:nth-child(1)", {
+            .to(".hero-title .title-line", {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: "power4.out"
+                duration: 1.1,
+                stagger: 0.13
             }, "-=0.45")
 
-            .to(".hero-title .title-line:nth-child(2)", {
+            .to(".hero-description", {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: "power4.out"
-            }, "-=0.58")
+                duration: 0.8
+            }, "-=0.55")
 
-            .to(".hero-title .title-line:nth-child(3)", {
+            .to(".hero-actions", {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: "power4.out"
-            }, "-=0.58")
+                duration: 0.8
+            }, "-=0.5")
 
-            .to(".hero-description.reveal", {
+            .to(".scroll-indicator", {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: "power3.out"
+                duration: 0.7
             }, "-=0.35")
 
-            .to(".hero-actions.reveal", {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
+            .to(".hero-image", {
+                scale: 1,
+                duration: 2.2,
                 ease: "power3.out"
-            }, "-=0.45");
+            }, 0);
 
-    }
+
+        startScrollAnimations();
+
+    };
+
+
+    /* =====================================================
+       SCROLL ANIMATIONS
+    ====================================================== */
+
+    const startScrollAnimations = () => {
+
+        if (
+            typeof gsap === "undefined" ||
+            typeof ScrollTrigger === "undefined"
+        ) {
+            return;
+        }
+
+
+        /* -------------------------------------------------
+           STATEMENT
+        ------------------------------------------------- */
+
+        gsap.from(".statement-content", {
+
+            opacity: 0,
+            y: 70,
+
+            duration: 1.1,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".statement",
+                start: "top 75%",
+                once: true
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           SECTION HEADINGS
+        ------------------------------------------------- */
+
+        gsap.utils.toArray(".section-heading").forEach((heading) => {
+
+            gsap.from(heading, {
+
+                opacity: 0,
+                y: 60,
+
+                duration: 1,
+
+                ease: "power3.out",
+
+                scrollTrigger: {
+                    trigger: heading,
+                    start: "top 80%",
+                    once: true
+                }
+
+            });
+
+        });
+
+
+        /* -------------------------------------------------
+           ABOUT IMAGE
+        ------------------------------------------------- */
+
+        const aboutImage =
+            document.querySelector(".reveal-image");
+
+        if (aboutImage) {
+
+            const imageFrame =
+                aboutImage.querySelector(".image-frame");
+
+            const image =
+                aboutImage.querySelector("img");
+
+
+            gsap.to(imageFrame, {
+
+                clipPath: "inset(0 0% 0 0)",
+
+                duration: 1.4,
+
+                ease: "power4.inOut",
+
+                scrollTrigger: {
+                    trigger: aboutImage,
+                    start: "top 75%",
+                    once: true
+                }
+
+            });
+
+
+            gsap.to(image, {
+
+                scale: 1,
+
+                duration: 1.8,
+
+                ease: "power3.out",
+
+                scrollTrigger: {
+                    trigger: aboutImage,
+                    start: "top 75%",
+                    once: true
+                }
+
+            });
+
+        }
+
+
+        /* -------------------------------------------------
+           ABOUT CONTENT
+        ------------------------------------------------- */
+
+        gsap.from(".about-content", {
+
+            opacity: 0,
+            x: 60,
+
+            duration: 1.1,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".about-grid",
+                start: "top 72%",
+                once: true
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           PRACTICE ITEMS
+        ------------------------------------------------- */
+
+        gsap.to(".practice-item", {
+
+            opacity: 1,
+            y: 0,
+
+            duration: 0.8,
+
+            stagger: 0.1,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".practice-list",
+                start: "top 75%",
+                once: true
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           FEATURE SECTION
+        ------------------------------------------------- */
+
+        gsap.from(".feature-content", {
+
+            opacity: 0,
+            y: 70,
+
+            duration: 1.2,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".feature-section",
+                start: "top 75%",
+                once: true
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           APPROACH CARDS
+        ------------------------------------------------- */
+
+        gsap.to(".approach-card", {
+
+            opacity: 1,
+            y: 0,
+
+            duration: 0.9,
+
+            stagger: 0.12,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".approach-grid",
+                start: "top 75%",
+                once: true
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           QUOTE
+        ------------------------------------------------- */
+
+        gsap.to(".quote-content", {
+
+            opacity: 1,
+            y: 0,
+
+            duration: 1.2,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".quote-section",
+                start: "top 70%",
+                once: true
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           QUOTE BACKGROUND PARALLAX
+        ------------------------------------------------- */
+
+        gsap.to(".quote-background", {
+
+            yPercent: 10,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: ".quote-section",
+
+                start: "top bottom",
+                end: "bottom top",
+
+                scrub: true
+
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           CONTACT
+        ------------------------------------------------- */
+
+        gsap.to(".contact-intro", {
+
+            opacity: 1,
+            y: 0,
+
+            duration: 1,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".contact",
+                start: "top 75%",
+                once: true
+            }
+
+        });
+
+
+        gsap.to(".contact-form", {
+
+            opacity: 1,
+            y: 0,
+
+            duration: 1,
+
+            delay: 0.15,
+
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".contact",
+                start: "top 75%",
+                once: true
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           HERO PARALLAX
+        ------------------------------------------------- */
+
+        gsap.to(".hero-image", {
+
+            yPercent: 12,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: ".hero",
+
+                start: "top top",
+                end: "bottom top",
+
+                scrub: true
+
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           GOLD LIGHT
+        ------------------------------------------------- */
+
+        gsap.to(".gold-light", {
+
+            x: -100,
+            y: 80,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: ".hero",
+
+                start: "top top",
+                end: "bottom top",
+
+                scrub: true
+
+            }
+
+        });
+
+
+        /* -------------------------------------------------
+           FEATURE ORBS
+        ------------------------------------------------- */
+
+        gsap.to(".orb-one", {
+
+            x: -100,
+            y: 80,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: ".feature-section",
+
+                start: "top bottom",
+                end: "bottom top",
+
+                scrub: true
+
+            }
+
+        });
+
+
+        gsap.to(".orb-two", {
+
+            x: 100,
+            y: -80,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: ".feature-section",
+
+                start: "top bottom",
+                end: "bottom top",
+
+                scrub: true
+
+            }
+
+        });
+
+    };
 
 
     /* =====================================================
        HEADER SCROLL
-    ===================================================== */
+    ====================================================== */
 
     const header =
         document.getElementById("siteHeader");
 
 
-    function updateHeader() {
+    const updateHeader = () => {
 
         if (!header) return;
 
@@ -245,7 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-    }
+    };
 
 
     window.addEventListener(
@@ -254,623 +571,146 @@ document.addEventListener("DOMContentLoaded", () => {
         { passive: true }
     );
 
+
     updateHeader();
 
 
     /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+       ACTIVE NAVIGATION
+    ====================================================== */
 
-    const menuToggle =
-        document.getElementById("menuToggle");
+    const sections =
+        document.querySelectorAll("section[id]");
 
-    const mobileMenu =
-        document.getElementById("mobileMenu");
-
-
-    function closeMenu() {
-
-        if (!menuToggle || !mobileMenu) {
-            return;
-        }
+    const navLinks =
+        document.querySelectorAll(".nav-link");
 
 
-        menuToggle.classList.remove("active");
+    if (
+        typeof IntersectionObserver !== "undefined"
+    ) {
 
-        mobileMenu.classList.remove("open");
+        const navObserver =
+            new IntersectionObserver(
 
-        mobileMenu.style.visibility =
-            "hidden";
+                (entries) => {
 
-        mobileMenu.style.pointerEvents =
-            "none";
+                    entries.forEach((entry) => {
 
-        document.body.classList.remove(
-            "menu-open"
-        );
+                        if (entry.isIntersecting) {
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+                            navLinks.forEach((link) => {
 
-    }
+                                link.classList.remove(
+                                    "active"
+                                );
 
-
-    function openMenu() {
-
-        if (!menuToggle || !mobileMenu) {
-            return;
-        }
+                            });
 
 
-        menuToggle.classList.add("active");
-
-        mobileMenu.classList.add("open");
-
-        mobileMenu.style.visibility =
-            "visible";
-
-        mobileMenu.style.pointerEvents =
-            "auto";
-
-        document.body.classList.add(
-            "menu-open"
-        );
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    }
+                            const activeLink =
+                                document.querySelector(
+                                    `.nav-link[href="#${entry.target.id}"]`
+                                );
 
 
-    if (menuToggle) {
+                            if (activeLink) {
 
-        menuToggle.addEventListener(
-            "click",
-            () => {
+                                activeLink.classList.add(
+                                    "active"
+                                );
 
-                const isOpen =
-                    menuToggle.classList.contains(
-                        "active"
-                    );
+                            }
 
+                        }
 
-                if (isOpen) {
+                    });
 
-                    closeMenu();
+                },
 
-                } else {
-
-                    openMenu();
-
+                {
+                    rootMargin:
+                        "-35% 0px -55% 0px"
                 }
 
-            }
-        );
+            );
+
+
+        sections.forEach((section) => {
+
+            navObserver.observe(section);
+
+        });
 
     }
 
 
+    /* =====================================================
+       SMOOTH SCROLL
+    ====================================================== */
+
+    let lenis = null;
+
+
+    if (
+        typeof Lenis !== "undefined" &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        lenis = new Lenis({
+
+            duration: 1.15,
+
+            smoothWheel: true,
+
+            smoothTouch: false
+
+        });
+
+
+        const raf = (time) => {
+
+            lenis.raf(time);
+
+            requestAnimationFrame(raf);
+
+        };
+
+
+        requestAnimationFrame(raf);
+
+
+        lenis.on("scroll", () => {
+
+            if (
+                typeof ScrollTrigger !== "undefined"
+            ) {
+
+                ScrollTrigger.update();
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       ANCHOR LINKS
+    ====================================================== */
+
     document
-        .querySelectorAll(".mobile-menu a")
+        .querySelectorAll('a[href^="#"]')
         .forEach((link) => {
 
             link.addEventListener(
                 "click",
-                closeMenu
-            );
-
-        });
-
-
-    /* =====================================================
-       ESCAPE KEY
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (event.key === "Escape") {
-
-                closeMenu();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       GSAP SCROLL ANIMATIONS
-    ===================================================== */
-
-    if (hasGSAP && hasScrollTrigger) {
-
-
-        /* -------------------------------------------------
-           GENERAL REVEALS
-        ------------------------------------------------- */
-
-        gsap.utils.toArray(
-            ".section-label"
-        ).forEach((element) => {
-
-            gsap.fromTo(
-                element,
-
-                {
-                    opacity: 0,
-                    y: 25
-                },
-
-                {
-                    opacity: 1,
-                    y: 0,
-
-                    duration: 0.8,
-
-                    ease: "power3.out",
-
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 85%",
-                        once: true
-                    }
-                }
-            );
-
-        });
-
-
-        /* -------------------------------------------------
-           HEADINGS
-        ------------------------------------------------- */
-
-        gsap.utils.toArray(
-            ".intro-heading h2, .section-heading-row h2, .process-heading h2, .clients-heading h2"
-        ).forEach((element) => {
-
-            gsap.fromTo(
-                element,
-
-                {
-                    opacity: 0,
-                    y: 70
-                },
-
-                {
-                    opacity: 1,
-                    y: 0,
-
-                    duration: 1.1,
-
-                    ease: "power4.out",
-
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 82%",
-                        once: true
-                    }
-                }
-            );
-
-        });
-
-
-        /* -------------------------------------------------
-           INDUSTRIES
-        ------------------------------------------------- */
-
-        gsap.utils.toArray(
-            ".industry-item"
-        ).forEach((item, index) => {
-
-            gsap.fromTo(
-                item,
-
-                {
-                    opacity: 0,
-                    x: -35
-                },
-
-                {
-                    opacity: 1,
-                    x: 0,
-
-                    duration: 0.75,
-
-                    delay: index * 0.04,
-
-                    ease: "power3.out",
-
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top 90%",
-                        once: true
-                    }
-                }
-            );
-
-        });
-
-
-        /* -------------------------------------------------
-           SERVICES
-        ------------------------------------------------- */
-
-        gsap.utils.toArray(
-            ".service-card"
-        ).forEach((card, index) => {
-
-            gsap.fromTo(
-                card,
-
-                {
-                    opacity: 0,
-                    y: 60
-                },
-
-                {
-                    opacity: 1,
-                    y: 0,
-
-                    duration: 0.9,
-
-                    delay: (index % 2) * 0.12,
-
-                    ease: "power3.out",
-
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 88%",
-                        once: true
-                    }
-                }
-            );
-
-        });
-
-
-        /* -------------------------------------------------
-           CLIENT POINTS
-        ------------------------------------------------- */
-
-        gsap.utils.toArray(
-            ".client-point"
-        ).forEach((point, index) => {
-
-            gsap.fromTo(
-                point,
-
-                {
-                    opacity: 0,
-                    x: 40
-                },
-
-                {
-                    opacity: 1,
-                    x: 0,
-
-                    duration: 0.8,
-
-                    delay: index * 0.08,
-
-                    ease: "power3.out",
-
-                    scrollTrigger: {
-                        trigger: point,
-                        start: "top 88%",
-                        once: true
-                    }
-                }
-            );
-
-        });
-
-
-        /* -------------------------------------------------
-           PROCESS
-        ------------------------------------------------- */
-
-        gsap.fromTo(
-            ".process-track::before",
-            {
-                scaleX: 0
-            },
-            {
-                scaleX: 1,
-                duration: 1.8,
-                ease: "power3.inOut",
-                scrollTrigger: {
-                    trigger: ".process-track",
-                    start: "top 75%",
-                    once: true
-                }
-            }
-        );
-
-
-        gsap.utils.toArray(
-            ".process-item"
-        ).forEach((item, index) => {
-
-            gsap.fromTo(
-                item,
-
-                {
-                    opacity: 0,
-                    y: 35
-                },
-
-                {
-                    opacity: 1,
-                    y: 0,
-
-                    duration: 0.7,
-
-                    delay: index * 0.12,
-
-                    ease: "power3.out",
-
-                    scrollTrigger: {
-                        trigger: ".process-track",
-                        start: "top 75%",
-                        once: true
-                    }
-                }
-            );
-
-        });
-
-
-        /* -------------------------------------------------
-           INSIGHTS
-        ------------------------------------------------- */
-
-        gsap.utils.toArray(
-            ".insight-card"
-        ).forEach((card, index) => {
-
-            gsap.fromTo(
-                card,
-
-                {
-                    opacity: 0,
-                    y: 60
-                },
-
-                {
-                    opacity: 1,
-                    y: 0,
-
-                    duration: 0.9,
-
-                    delay: index * 0.12,
-
-                    ease: "power3.out",
-
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 88%",
-                        once: true
-                    }
-                }
-            );
-
-        });
-
-
-        /* -------------------------------------------------
-           TESTIMONIAL
-        ------------------------------------------------- */
-
-        gsap.fromTo(
-            ".testimonial-content",
-
-            {
-                opacity: 0,
-                y: 60
-            },
-
-            {
-                opacity: 1,
-                y: 0,
-
-                duration: 1.2,
-
-                ease: "power4.out",
-
-                scrollTrigger: {
-                    trigger: ".testimonial-content",
-                    start: "top 80%",
-                    once: true
-                }
-            }
-        );
-
-
-        /* -------------------------------------------------
-           CTA
-        ------------------------------------------------- */
-
-        gsap.fromTo(
-            ".cta-content",
-
-            {
-                opacity: 0,
-                y: 80
-            },
-
-            {
-                opacity: 1,
-                y: 0,
-
-                duration: 1.2,
-
-                ease: "power4.out",
-
-                scrollTrigger: {
-                    trigger: ".cta-content",
-                    start: "top 80%",
-                    once: true
-                }
-            }
-        );
-
-
-        /* -------------------------------------------------
-           STATEMENT PARALLAX
-        ------------------------------------------------- */
-
-        const statementBackground =
-            document.querySelector(
-                ".statement-background"
-            );
-
-
-        if (statementBackground) {
-
-            gsap.to(
-                statementBackground,
-
-                {
-                    yPercent: 12,
-
-                    ease: "none",
-
-                    scrollTrigger: {
-                        trigger: ".statement-section",
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                }
-            );
-
-        }
-
-
-        /* -------------------------------------------------
-           CTA PARALLAX
-        ------------------------------------------------- */
-
-        const ctaBackground =
-            document.querySelector(
-                ".cta-background"
-            );
-
-
-        if (ctaBackground) {
-
-            gsap.to(
-                ctaBackground,
-
-                {
-                    yPercent: 10,
-
-                    ease: "none",
-
-                    scrollTrigger: {
-                        trigger: ".cta-section",
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                }
-            );
-
-        }
-
-
-        /* -------------------------------------------------
-           HERO ATMOSPHERE PARALLAX
-        ------------------------------------------------- */
-
-        gsap.to(
-            ".hero-orb-one",
-
-            {
-                yPercent: -12,
-
-                ease: "none",
-
-                scrollTrigger: {
-                    trigger: ".hero",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true
-                }
-            }
-        );
-
-
-        gsap.to(
-            ".hero-orb-two",
-
-            {
-                yPercent: 20,
-
-                ease: "none",
-
-                scrollTrigger: {
-                    trigger: ".hero",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true
-                }
-            }
-        );
-
-
-        /* -------------------------------------------------
-           GLOBAL SECTION
-        ------------------------------------------------- */
-
-        gsap.fromTo(
-            ".global-content",
-
-            {
-                opacity: 0,
-                x: -70
-            },
-
-            {
-                opacity: 1,
-                x: 0,
-
-                duration: 1.1,
-
-                ease: "power4.out",
-
-                scrollTrigger: {
-                    trigger: ".global-section",
-                    start: "top 75%",
-                    once: true
-                }
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       SMOOTH ANCHOR LINKS
-    ===================================================== */
-
-    document
-        .querySelectorAll('a[href^="#"]')
-        .forEach((anchor) => {
-
-            anchor.addEventListener(
-                "click",
-                function (event) {
+                (event) => {
 
                     const targetId =
-                        this.getAttribute("href");
+                        link.getAttribute("href");
 
 
                     if (
@@ -882,12 +722,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     const target =
-                        document.querySelector(
-                            targetId
-                        );
+                        document.querySelector(targetId);
 
 
-                    if (!target) return;
+                    if (!target) {
+                        return;
+                    }
 
 
                     event.preventDefault();
@@ -895,13 +735,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (lenis) {
 
-                        lenis.scrollTo(
-                            target,
-                            {
-                                offset: -80,
-                                duration: 1.3
-                            }
-                        );
+                        lenis.scrollTo(target, {
+                            offset: -70,
+                            duration: 1.2
+                        });
 
                     } else {
 
@@ -918,40 +755,357 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       IMAGE FALLBACK
-       ===================================================== */
+       CUSTOM CURSOR
+    ====================================================== */
 
-    document
-        .querySelectorAll("img")
-        .forEach((image) => {
+    const cursor =
+        document.querySelector(".cursor");
 
-            image.addEventListener(
-                "error",
+    const follower =
+        document.querySelector(".cursor-follower");
+
+
+    if (
+        cursor &&
+        follower &&
+        window.matchMedia("(pointer: fine)").matches
+    ) {
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        let followerX = mouseX;
+        let followerY = mouseY;
+
+
+        window.addEventListener(
+            "mousemove",
+            (event) => {
+
+                mouseX = event.clientX;
+                mouseY = event.clientY;
+
+
+                gsap.set(cursor, {
+                    x: mouseX,
+                    y: mouseY
+                });
+
+            }
+        );
+
+
+        const cursorLoop = () => {
+
+            followerX +=
+                (mouseX - followerX) * 0.12;
+
+            followerY +=
+                (mouseY - followerY) * 0.12;
+
+
+            gsap.set(follower, {
+                x: followerX,
+                y: followerY
+            });
+
+
+            requestAnimationFrame(cursorLoop);
+
+        };
+
+
+        cursorLoop();
+
+
+        const hoverTargets =
+            document.querySelectorAll(
+                "a, button, input, textarea"
+            );
+
+
+        hoverTargets.forEach((element) => {
+
+            element.addEventListener(
+                "mouseenter",
                 () => {
 
-                    image.style.opacity = "0";
+                    follower.classList.add(
+                        "cursor-hover"
+                    );
+
+                }
+            );
+
+
+            element.addEventListener(
+                "mouseleave",
+                () => {
+
+                    follower.classList.remove(
+                        "cursor-hover"
+                    );
 
                 }
             );
 
         });
 
+    }
+
 
     /* =====================================================
-       REFRESH SCROLLTRIGGER
-    ===================================================== */
+       MAGNETIC BUTTON EFFECT
+    ====================================================== */
 
-    window.addEventListener(
-        "load",
-        () => {
+    if (
+        typeof gsap !== "undefined" &&
+        window.matchMedia("(pointer: fine)").matches
+    ) {
 
-            if (hasScrollTrigger) {
+        document
+            .querySelectorAll(
+                ".btn-primary, .btn-gold, .nav-cta"
+            )
+            .forEach((button) => {
 
-                ScrollTrigger.refresh();
+                button.addEventListener(
+                    "mousemove",
+                    (event) => {
+
+                        const rect =
+                            button.getBoundingClientRect();
+
+
+                        const x =
+                            event.clientX -
+                            rect.left -
+                            rect.width / 2;
+
+
+                        const y =
+                            event.clientY -
+                            rect.top -
+                            rect.height / 2;
+
+
+                        gsap.to(button, {
+
+                            x: x * 0.12,
+                            y: y * 0.12,
+
+                            duration: 0.35,
+
+                            ease: "power2.out"
+
+                        });
+
+                    }
+                );
+
+
+                button.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        gsap.to(button, {
+
+                            x: 0,
+                            y: 0,
+
+                            duration: 0.6,
+
+                            ease: "elastic.out(1, 0.5)"
+
+                        });
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+
+    if (menuToggle && mobileMenu) {
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                const isOpen =
+                    mobileMenu.classList.contains(
+                        "active"
+                    );
+
+
+                if (isOpen) {
+
+                    mobileMenu.classList.remove(
+                        "active"
+                    );
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+                    document.body.classList.remove(
+                        "menu-open"
+                    );
+
+                } else {
+
+                    mobileMenu.classList.add(
+                        "active"
+                    );
+
+                    menuToggle.classList.add(
+                        "active"
+                    );
+
+                    document.body.classList.add(
+                        "menu-open"
+                    );
+
+                }
 
             }
+        );
 
-        }
-    );
+
+        document
+            .querySelectorAll(".mobile-link")
+            .forEach((link) => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        mobileMenu.classList.remove(
+                            "active"
+                        );
+
+                        menuToggle.classList.remove(
+                            "active"
+                        );
+
+                        document.body.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =====================================================
+       CONTACT FORM
+    ====================================================== */
+
+    const form =
+        document.getElementById("contactForm");
+
+
+    if (form) {
+
+        form.addEventListener(
+            "submit",
+            (event) => {
+
+                event.preventDefault();
+
+
+                const button =
+                    form.querySelector(
+                        ".form-submit"
+                    );
+
+
+                const buttonText =
+                    button.querySelector("span");
+
+
+                if (!buttonText) {
+                    return;
+                }
+
+
+                const original =
+                    buttonText.textContent;
+
+
+                buttonText.textContent =
+                    "Enquiry Received";
+
+
+                button.disabled = true;
+
+
+                setTimeout(() => {
+
+                    buttonText.textContent =
+                        original;
+
+                    button.disabled = false;
+
+                    form.reset();
+
+                }, 2500);
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       YEAR
+    ====================================================== */
+
+    const year =
+        document.getElementById("currentYear");
+
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+
+    /* =====================================================
+       START
+    ====================================================== */
+
+    if (
+        document.readyState === "complete"
+    ) {
+
+        startSite();
+
+    } else {
+
+        window.addEventListener(
+            "load",
+            startSite,
+            { once: true }
+        );
+
+    }
 
 });
